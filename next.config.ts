@@ -2,6 +2,39 @@ import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
+  // Bake server-side env vars into the bundle at build time.
+  // Amplify WEB_COMPUTE only exposes branch env vars during the BUILD phase,
+  // not in the Lambda runtime — so we embed them here.
+  env: {
+    MONGODB_URI:               process.env.MONGODB_URI               || '',
+    AUTH_SECRET:               process.env.AUTH_SECRET               || '',
+    AUTH_TRUST_HOST:           process.env.AUTH_TRUST_HOST           || 'true',
+    AUTH_URL:                  process.env.AUTH_URL                  || '',
+    ADMIN_EMAIL:               process.env.ADMIN_EMAIL               || '',
+    ADMIN_PASSWORD:            process.env.ADMIN_PASSWORD            || '',
+    ADMIN_PASSWORD_HASH:       process.env.ADMIN_PASSWORD_HASH       || '',
+    S3_REGION:                 process.env.S3_REGION                 || '',
+    S3_BUCKET:                 process.env.S3_BUCKET                 || '',
+    S3_ACCESS_KEY_ID:          process.env.S3_ACCESS_KEY_ID          || '',
+    S3_SECRET_ACCESS_KEY:      process.env.S3_SECRET_ACCESS_KEY      || '',
+    UPSTASH_REDIS_REST_URL:    process.env.UPSTASH_REDIS_REST_URL    || '',
+    UPSTASH_REDIS_REST_TOKEN:  process.env.UPSTASH_REDIS_REST_TOKEN  || '',
+    MEILISEARCH_HOST:          process.env.MEILISEARCH_HOST          || '',
+    MEILISEARCH_API_KEY:       process.env.MEILISEARCH_API_KEY       || '',
+    MEILISEARCH_SEARCH_KEY:    process.env.MEILISEARCH_SEARCH_KEY    || '',
+    SYNC_API_KEY:              process.env.SYNC_API_KEY              || '',
+    SENTRY_ORG:                process.env.SENTRY_ORG                || '',
+    SENTRY_PROJECT:            process.env.SENTRY_PROJECT            || '',
+    SENTRY_AUTH_TOKEN:         process.env.SENTRY_AUTH_TOKEN         || '',
+    SMTP_HOST:                 process.env.SMTP_HOST                 || '',
+    SMTP_PORT:                 process.env.SMTP_PORT                 || '',
+    SMTP_SECURE:               process.env.SMTP_SECURE               || '',
+    SMTP_USER:                 process.env.SMTP_USER                 || '',
+    SMTP_PASS:                 process.env.SMTP_PASS                 || '',
+    CONTACT_TO_EMAIL:          process.env.CONTACT_TO_EMAIL          || '',
+    GOOGLE_SITE_VERIFICATION:  process.env.GOOGLE_SITE_VERIFICATION  || '',
+  },
+
   allowedDevOrigins: ["192.168.1.16"],
 
   // Image optimization
