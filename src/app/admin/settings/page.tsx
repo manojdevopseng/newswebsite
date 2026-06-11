@@ -77,8 +77,8 @@ export default function SettingsPage() {
 
   const envVars = [
     { label: 'MongoDB URI',          envKey: 'MONGODB_URI',             value: process.env.NEXT_PUBLIC_MONGO_SET ? 'configured' : '' },
-    { label: 'S3 Bucket',            envKey: 'AWS_S3_BUCKET',           value: process.env.NEXT_PUBLIC_S3_BUCKET || '' },
-    { label: 'AWS Region',           envKey: 'AWS_REGION',              value: process.env.NEXT_PUBLIC_AWS_REGION || '' },
+    { label: 'S3 Bucket',            envKey: 'S3_BUCKET',               value: process.env.NEXT_PUBLIC_S3_BUCKET || '' },
+    { label: 'AWS Region',           envKey: 'S3_REGION',               value: process.env.NEXT_PUBLIC_AWS_REGION || '' },
     { label: 'Site URL',             envKey: 'NEXT_PUBLIC_URL',         value: process.env.NEXT_PUBLIC_URL || '' },
     { label: 'Auth Secret',          envKey: 'AUTH_SECRET',             value: 'configured' },
   ]

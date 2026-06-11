@@ -5,10 +5,10 @@ import { auth } from '@/lib/admin/auth'
 import { S3Client, ListObjectsV2Command, DeleteObjectCommand } from '@aws-sdk/client-s3'
 
 const s3 = new S3Client({
-  region: process.env.AWS_REGION!,
+  region: process.env.S3_REGION!,
   credentials: {
-    accessKeyId:     process.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    accessKeyId:     process.env.S3_ACCESS_KEY_ID!,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
   },
 })
 
@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
       let token: string | undefined
       do {
         const res = await s3.send(new ListObjectsV2Command({
-          Bucket:            process.env.AWS_S3_BUCKET!,
+          Bucket:            process.env.S3_BUCKET!,
           Prefix:            prefix,
           MaxKeys:           500,
           ContinuationToken: token,
@@ -64,6 +64,6 @@ export async function DELETE(req: NextRequest) {
   const { key } = await req.json()
   if (!key) return NextResponse.json({ error: 'Key required' }, { status: 400 })
 
-  await s3.send(new DeleteObjectCommand({ Bucket: process.env.AWS_S3_BUCKET!, Key: key }))
+  await s3.send(new DeleteObjectCommand({ Bucket: process.env.S3_BUCKET!, Key: key }))
   return NextResponse.json({ success: true })
 }

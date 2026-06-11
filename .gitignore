@@ -87,6 +87,9 @@ CLAUDE.md
 
 .vercel
 
+# Amplify local config (contains secrets — never commit)
+amplify-env.json
+
 # Article seeding scripts & media (local only — root level)
 /scripts/
 /seed-21-articles-p1.mjs
