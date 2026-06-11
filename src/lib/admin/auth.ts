@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs'
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   secret: process.env.AUTH_SECRET,
+  trustHost: true,
   session: { strategy: 'jwt', maxAge: 7 * 24 * 60 * 60 }, // 7 days
   pages: {
     signIn: '/admin/login',
