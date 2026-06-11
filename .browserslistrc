@@ -1,0 +1,12 @@
+[production]
+chrome >= 93
+firefox >= 90
+safari >= 15
+edge >= 93
+not dead
+not IE 11
+
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version

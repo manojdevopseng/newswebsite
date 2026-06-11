@@ -1,0 +1,102 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+.next
+dist
+out
+build
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Turbo
+.turbo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage
+
+# AWS
+.aws-sam
+cdk.out
+
+# Claude local settings
+.claude
+CLAUDE.md
+
+.vercel
+
+# Article seeding scripts & media (local only — root level)
+/scripts/
+/seed-21-articles-p1.mjs
+/seed-21-articles-p2.mjs
+
+# npm lockfile (project uses pnpm — never commit package-lock.json)
+apps/web/package-lock.json
+
+# Data seeding scripts (local only — should not be in git)
+apps/web/*.cjs
