@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LayoutShell } from "@/components/layout/LayoutShell";
 import { CookieConsent } from "@/components/shared/CookieConsent";
 import { GoogleAnalytics } from "@/components/shared/GoogleAnalytics";
@@ -59,8 +58,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <GoogleAnalytics gaId={GA_ID} adsenseClient={ADSENSE_CLIENT} />
         )}
 
-        {/* Vercel Speed Insights */}
-        <SpeedInsights />
       </body>
     </html>
   );

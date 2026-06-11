@@ -55,12 +55,10 @@ export function formatNumber(n: number): string {
 
 /**
  * Returns the correct base URL for internal API calls.
- * - On Vercel: uses VERCEL_URL (auto-set per deployment, no custom domain needed)
- * - Explicit override: NEXT_PUBLIC_URL
+ * - Explicit override: NEXT_PUBLIC_URL (set this in Amplify env vars)
  * - Local dev: http://localhost:3000
  */
 export function getBaseUrl(): string {
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   if (process.env.NEXT_PUBLIC_URL) return process.env.NEXT_PUBLIC_URL;
   return "http://localhost:3000";
 }
